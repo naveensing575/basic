@@ -3,6 +3,10 @@
   <h1 v-if="msg">{{ msg }}</h1>
   <h1 v-else>Hey this is my first vue app</h1>
   <p v-text="name"></p>
+  <p v-html="name"></p>
+  <button v-bind="{ disabled: binding }" @click="msg = 'Hello World'">
+    Click Me
+  </button>
 </template>
 
 <script>
@@ -11,7 +15,8 @@ export default {
   data() {
     return {
       msg: "Welcome to Vue.js App",
-      name: "Naveen Singh",
+      name: "<i>Naveen Singh</i>",
+      binding: false,
     };
   },
 };
