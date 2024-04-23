@@ -7,6 +7,10 @@
   <button v-bind="{ disabled: binding }" @click="msg = 'Hello World'">
     Click Me
   </button>
+  <p v-bind="{ class: classBinding }">Class Binding</p>
+  <button @click="classBinding = 'expired'">Expired</button>
+  <button @click="classBinding = 'success'">Success</button>
+  <button @click="binding = !binding">Toggle Binding</button>
 </template>
 
 <script>
@@ -17,6 +21,7 @@ export default {
       msg: "Welcome to Vue.js App",
       name: "<i>Naveen Singh</i>",
       binding: false,
+      classBinding: "underline",
     };
   },
 };
@@ -33,5 +38,17 @@ body {
   text-align: center;
   color: #ffffff;
   margin-top: 60px;
+}
+.underline {
+  text-decoration: underline;
+}
+.overline {
+  text-decoration: overline;
+}
+.expired {
+  color: red;
+}
+.success {
+  color: green;
 }
 </style>
