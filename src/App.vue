@@ -11,6 +11,11 @@
   <button @click="classBinding = 'expired'">Expired</button>
   <button @click="classBinding = 'success'">Success</button>
   <button @click="binding = !binding">Toggle Binding</button>
+  <p v-for="item in car" :key="item">{{ item }}</p>
+  <template v-for="user in users.user" :key="user.id">
+    <p>Name: {{ user.name }}</p>
+    <p>Age: {{ user.age }}</p>
+  </template>
 </template>
 
 <script>
@@ -22,6 +27,19 @@ export default {
       name: "<i>Naveen Singh</i>",
       binding: false,
       classBinding: "underline",
+      car: ["BMW", "Mercedes", "Audi"],
+      users: {
+        user: [
+          {
+            name: "Naveen",
+            age: 23,
+          },
+          {
+            name: "Jusnoor",
+            age: 24,
+          },
+        ],
+      },
     };
   },
 };
