@@ -153,7 +153,19 @@ export default {
     },
     onSubmit(e) {
       e.preventDefault();
-      console.log("Thanks you for your registration", this.formValues);
+      if (
+        !this.formValues.name ||
+        !this.formValues.email ||
+        !this.formValues.country ||
+        this.formValues.jobLocation.length === 0 ||
+        this.formValues.skillSet.length === 0 ||
+        !this.formValues.yearsOfExp
+      ) {
+        return alert("Please fill all the required fields");
+      } else {
+        console.log("Thank you for your registration", this.formValues);
+        return this.formValues;
+      }
     },
   },
 };
