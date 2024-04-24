@@ -15,7 +15,9 @@
   <template v-for="user in users.user" :key="user.id">
     <p>Name: {{ user.name }}</p>
     <p>Age: {{ user.age }}</p>
+    <p v-show="user.hobbies">Hobbies: {{ user.hobbies }}</p>
   </template>
+  <button @click="count++">Count: {{ count }}</button>
 </template>
 
 <script>
@@ -28,11 +30,13 @@ export default {
       binding: false,
       classBinding: "underline",
       car: ["BMW", "Mercedes", "Audi"],
+      count: 0,
       users: {
         user: [
           {
             name: "Naveen",
             age: 23,
+            hobbies: ["Football", "Singing", "playing guitar"],
           },
           {
             name: "Jusnoor",
