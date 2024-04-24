@@ -20,6 +20,25 @@
   <h1>Count: {{ count }}</h1>
   <button v-on:click="increment">Increment Count</button>
   <button v-on:click="decrement">Decrement Count</button>
+  <div class="form">
+    <h3>User Input Form</h3>
+    <label for="name">Name:</label>
+    <input type="text" v-model="formValues.name" placeholder="Name" /><br />
+    <label for="email">Email:</label>
+    <input type="text" v-model="formValues.email" placeholder="Email" />
+    <div>
+      <h4>Two-way binding</h4>
+      <p>{{ formValues }}</p>
+    </div>
+  </div>
+  <div>
+    <h3>Select country</h3>
+    <select id="country" v-model="formValues.country">
+      <option value="India">India</option>
+      <option value="USA">USA</option>
+      <option value="UK">UK</option>
+    </select>
+  </div>
 </template>
 
 <script>
@@ -32,6 +51,11 @@ export default {
       binding: false,
       classBinding: "underline",
       car: ["BMW", "Mercedes", "Audi"],
+      formValues: {
+        name: "",
+        email: "",
+        country: "",
+      },
       count: 0,
       users: {
         user: [
@@ -62,6 +86,22 @@ export default {
 <style>
 body {
   background: #2c3e50;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+label {
+  margin: 10px;
+}
+input {
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin-bottom: 10px;
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
