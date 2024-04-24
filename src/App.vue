@@ -4,7 +4,7 @@
   <h1 v-else>Hey this is my first vue app</h1>
   <p v-text="name"></p>
   <p v-html="name"></p>
-  <button v-bind="{ disabled: binding }" @click="msg = 'Hello World'">
+  <button v-bind="{ disabled: binding }" v-on:click="msg = 'Hello World'">
     Click Me
   </button>
   <p v-bind="{ class: classBinding }">Class Binding</p>
@@ -17,7 +17,9 @@
     <p>Age: {{ user.age }}</p>
     <p v-show="user.hobbies">Hobbies: {{ user.hobbies }}</p>
   </template>
-  <button @click="count++">Count: {{ count }}</button>
+  <h1>Count: {{ count }}</h1>
+  <button v-on:click="increment">Increment Count</button>
+  <button v-on:click="decrement">Decrement Count</button>
 </template>
 
 <script>
@@ -45,6 +47,14 @@ export default {
         ],
       },
     };
+  },
+  methods: {
+    increment() {
+      return (this.count += 1);
+    },
+    decrement() {
+      return (this.count -= 1);
+    },
   },
 };
 </script>
