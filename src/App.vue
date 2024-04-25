@@ -20,10 +20,15 @@
   <h1>Count: {{ count }}</h1>
   <button v-on:click="increment">Increment Count</button>
   <button v-on:click="decrement">Decrement Count</button>
-  <form class="form" @submit="onSubmit">
+  <form class="form" @submit.prevent="onSubmit">
     <h3>User Input Form</h3>
     <label for="name">Name:</label>
-    <input type="text" v-model="formValues.name" placeholder="Name" /><br />
+    <input
+      type="text"
+      id="name"
+      v-model.trim.lazy="formValues.name"
+      placeholder="Name"
+    /><br />
     <label for="email">Email:</label>
     <input type="text" v-model="formValues.email" placeholder="Email" />
     <div>
@@ -102,6 +107,7 @@
         id="6-10"
         value="6-10"
         v-model="formValues.yearsOfExp"
+        @keyup.enter="onSubmit"
       />
       <label for="6-10">6-10</label>
     </div>
@@ -151,8 +157,7 @@ export default {
     decrement() {
       return (this.count -= 1);
     },
-    onSubmit(e) {
-      e.preventDefault();
+    onSubmit() {
       if (
         !this.formValues.name ||
         !this.formValues.email ||
