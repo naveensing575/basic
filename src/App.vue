@@ -12,6 +12,7 @@
   <button @click="classBinding = 'success'">Success</button>
   <button @click="binding = !binding">Toggle Binding</button>
   <p v-for="item in car" :key="item">{{ item }}</p>
+  <h4>Total number of users: {{ totalUsers }}</h4>
   <template v-for="user in users.user" :key="user.id">
     <p>Name: {{ user.name }}</p>
     <p>Age: {{ user.age }}</p>
@@ -171,6 +172,11 @@ export default {
         console.log("Thank you for your registration", this.formValues);
         return this.formValues;
       }
+    },
+  },
+  computed: {
+    totalUsers() {
+      return this.users.user.length;
     },
   },
 };
