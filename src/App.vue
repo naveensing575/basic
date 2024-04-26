@@ -21,6 +21,12 @@
   <h1>Count: {{ count }}</h1>
   <button v-on:click="increment">Increment Count</button>
   <button v-on:click="decrement">Decrement Count</button>
+  <h2>Volume Tracker</h2>
+  <h3>Volume: {{ volume }}</h3>
+  <div>
+    <button @click="volume++">+</button>
+    <button @click="volume--">-</button>
+  </div>
   <form class="form" @submit.prevent="onSubmit">
     <h3>User Input Form</h3>
     <label for="name">Name:</label>
@@ -122,6 +128,7 @@ export default {
   data() {
     return {
       msg: "Welcome to Vue.js App",
+      volume: 0,
       name: "<i>Naveen Singh</i>",
       binding: false,
       classBinding: "underline",
@@ -177,6 +184,13 @@ export default {
   computed: {
     totalUsers() {
       return this.users.user.length;
+    },
+  },
+  watch: {
+    volume(newValue, oldValue) {
+      if (newValue > oldValue && newValue === 16) {
+        alert("Listening to high volume is not advisable");
+      }
     },
   },
 };
