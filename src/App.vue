@@ -18,8 +18,8 @@
   <h2>Volume Tracker</h2>
   <h3>Volume: {{ volume }}</h3>
   <div>
-    <button @click="volume++">+</button>
-    <button @click="volume--">-</button>
+    <button @click="volumeUp" class="btn">+</button>
+    <button @click="volumeDown" class="btn">-</button>
   </div>
   <UserForm />
   <div>
@@ -60,7 +60,18 @@ export default {
       return (this.count += 1);
     },
     decrement() {
-      return (this.count -= 1);
+      if (this.count <= 0) {
+        return false;
+      } else return (this.count -= 1);
+    },
+
+    volumeUp() {
+      return (this.volume += 1);
+    },
+    volumeDown() {
+      if (this.volume <= 0) {
+        return false;
+      } else return (this.volume -= 1);
     },
   },
   watch: {
