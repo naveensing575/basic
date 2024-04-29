@@ -92,14 +92,22 @@
     </div>
     <button type="submit" class="btn">Submit</button>
   </form>
+  <NestedComponent />
 </template>
 
 <script lang="js">
+import NestedComponent from './NestedComponent.vue';
+
 export default {
   app: "UserForm",
+  components: {
+    NestedComponent,
+  },
+  provide: {
+      message: "Hello, this is a nested component(managed using provide/inject)",
+    },
   data() {
     return {
-      name: "Naveen Singh",
       formValues: {
         name: "",
         email: "",

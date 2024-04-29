@@ -22,17 +22,17 @@
     <button @click="volume--">-</button>
   </div>
   <UserForm />
-  <UserList />
+  <!-- <UserList /> -->
 </template>
 
 <script>
 import UserForm from "./components/UserForm.vue";
-import UserList from "./components/UserList.vue";
+// import UserList from "./components/UserList.vue";
 export default {
   name: "App",
   components: {
     UserForm,
-    UserList,
+    // UserList,
   },
   data() {
     return {
