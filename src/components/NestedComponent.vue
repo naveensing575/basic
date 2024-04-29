@@ -11,5 +11,3 @@ export default {
   inject: ["message"],
 };
 </script>
-
-<style lang="css"></style>

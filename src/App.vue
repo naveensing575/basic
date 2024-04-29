@@ -22,16 +22,22 @@
     <button @click="volume--">-</button>
   </div>
   <UserForm />
+  <div>
+    <button class="modal-btn" @click="ShowPopup = true">Show Popup</button>
+    <PopupModal v-if="ShowPopup" @close="ShowPopup = false" />
+  </div>
   <!-- <UserList /> -->
 </template>
 
 <script>
 import UserForm from "./components/UserForm.vue";
+import PopupModal from "./components/PopupModal.vue";
 // import UserList from "./components/UserList.vue";
 export default {
   name: "App",
   components: {
     UserForm,
+    PopupModal,
     // UserList,
   },
   data() {
@@ -43,14 +49,18 @@ export default {
       classBinding: "underline",
       car: ["BMW", "Mercedes", "Audi"],
       count: 0,
+      ShowPopup: false,
     };
   },
   methods: {
+    closePopup() {
+      this.ShowPopup = false;
+    },
     increment() {
-      return this.count + 1;
+      return (this.count += 1);
     },
     decrement() {
-      return this.count - 1;
+      return (this.count -= 1);
     },
   },
   watch: {
@@ -87,5 +97,14 @@ body {
 }
 .success {
   color: green;
+}
+.modal-btn {
+  background: #42b983;
+  font-size: 24px;
+  color: #ffffff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 </style>
