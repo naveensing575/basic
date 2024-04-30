@@ -23,8 +23,10 @@
   </div>
   <UserForm />
   <div>
-    <button class="modal-btn" @click="ShowPopup = true">Show Popup</button>
-    <PopupModal v-if="ShowPopup" @close="ShowPopup = false" />
+    <button class="modal-btn" @click="togglePopup">
+      {{ ShowPopup ? "Hide Popup" : "Show Popup" }}
+    </button>
+    <PopupModal v-if="ShowPopup" @close="togglePopup" />
   </div>
   <!-- <UserList /> -->
 </template>
@@ -53,6 +55,9 @@ export default {
     };
   },
   methods: {
+    togglePopup() {
+      this.ShowPopup = !this.ShowPopup;
+    },
     closePopup() {
       this.ShowPopup = false;
     },
