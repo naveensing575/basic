@@ -21,7 +21,7 @@
     <button @click="volumeUp" class="btn">+</button>
     <button @click="volumeDown" class="btn">-</button>
   </div>
-  <UserForm />
+  <!-- <UserForm /> -->
   <div>
     <button class="modal-btn" @click="togglePopup">
       {{ ShowPopup ? "Hide Popup" : "Show Popup" }}
@@ -29,17 +29,20 @@
     <PopupModal v-if="ShowPopup" @close="togglePopup" />
   </div>
   <!-- <UserList /> -->
+  <MultipleTabs />
 </template>
 
 <script>
-import UserForm from "./components/UserForm.vue";
+// import UserForm from "./components/UserForm.vue";
 import PopupModal from "./components/PopupModal.vue";
+import MultipleTabs from "./components/MultipleTabs.vue";
 // import UserList from "./components/UserList.vue";
 export default {
   name: "App",
   components: {
-    UserForm,
+    // UserForm,
     PopupModal,
+    MultipleTabs,
     // UserList,
   },
   data() {
