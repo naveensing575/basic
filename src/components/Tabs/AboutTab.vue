@@ -1,5 +1,6 @@
 <template>
   <h1>Welcome To About Page</h1>
+  <input type="text" />
 </template>
 
 <script>

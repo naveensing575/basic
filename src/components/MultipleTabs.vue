@@ -1,10 +1,27 @@
 <template>
   <div class="tab">
-    <button @click="active = 'HomeTab'" :class="{ active: active === 'HomeTab' }">Home</button>
-    <button @click="active = 'AboutTab'" :class="{ active: active === 'AboutTab' }">About</button>
-    <button @click="active = 'JobsTab'" :class="{ active: active === 'JobsTab' }">Jobs</button>
+    <button
+      @click="active = 'HomeTab'"
+      :class="{ active: active === 'HomeTab' }"
+    >
+      Home
+    </button>
+    <button
+      @click="active = 'AboutTab'"
+      :class="{ active: active === 'AboutTab' }"
+    >
+      About
+    </button>
+    <button
+      @click="active = 'JobsTab'"
+      :class="{ active: active === 'JobsTab' }"
+    >
+      Jobs
+    </button>
 
-    <component :is="active" />
+    <keep-alive>
+      <component :is="active" />
+    </keep-alive>
   </div>
 </template>
 
