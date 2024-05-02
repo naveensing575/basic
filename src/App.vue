@@ -22,7 +22,7 @@
     <button @click="volumeDown" class="btn">-</button>
   </div>
   <!-- <UserForm /> -->
-  <div>
+  <div class="modal">
     <button class="modal-btn" @click="togglePopup">
       {{ ShowPopup ? "Hide Popup" : "Show Popup" }}
     </button>
@@ -125,5 +125,8 @@ body {
   padding: 5px 10px;
   border-radius: 5px;
   cursor: pointer;
+}
+.modal {
+  margin-top: 50px;
 }
 </style>
